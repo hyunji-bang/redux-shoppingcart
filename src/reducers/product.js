@@ -12,9 +12,13 @@ function product(state = initialState, action) {
         default:
             return state;
         case types.ADD_CART :
-            return [];
+            console.log('ADDCART state', state)
+
+            return {
+                ...state
+            };
         case types.CHECKOUT :
-            return [];
+            return {};
     }
 }
 export default product;

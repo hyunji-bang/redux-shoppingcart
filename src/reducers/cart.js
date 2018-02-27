@@ -8,7 +8,7 @@ function cart(state = initialState, action) {
         default:
             return state;
         case types.ADD_CART :
-            return {};
+            return {}
         case types.CHECKOUT :
             return {};
     }

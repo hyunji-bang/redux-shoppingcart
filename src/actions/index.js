@@ -11,5 +11,5 @@ export const addcart = () => ({
 })
 
 export const checkout = () => ({
-    type: types.CHECKOOUT
+    type: types.CHECKOUT
 })
