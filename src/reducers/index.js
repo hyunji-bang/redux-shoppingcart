@@ -1,14 +1,9 @@
-import * as types from '../actions/ActionTypes';
+import { combineReducers } from 'redux'
+import product from './product'
+import cart from './cart'
 
-// 초기 상태를 정의합니다
-const initialState = {
-};
 
-function cart(state = initialState, action) {
-    switch(action.type) {
-        default:
-            return state;
-    }
-}
-
-export default cart;
+export default combineReducers({
+    cart,
+    product
+})
