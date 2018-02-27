@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.Products {
+  background: gray;
+  margin: 20px;
+  padding: 1px;
+  border-radius: 5px;
+}
+.Products ul li {
+  list-style: none;
+  color: #fff;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.Products ul li button {
+  margin-left: 10px;
+}
+
+.Cart {
+  margin: 20px;
+  padding: 1px;
+  border: 1px #ddd solid;
+}
+
+.Cart button {
+  padding: 5px 10px;
+  margin: 20px auto;
+  display: inline-block;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
