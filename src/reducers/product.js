@@ -8,15 +8,18 @@ const initialState = [
 ]
 
 function product(state = initialState, action) {
+    console.log('action :', action)
     switch(action.types) {
         default:
             return state;
         case types.ADD_CART :
-            console.log('ADDCART state', state)
-
-            return {
-                ...state
-            };
+            return state.map(product => {
+                if( product.idx === action.idx) {
+                    return {
+                        ...product
+                    }
+                }
+            })
         case types.CHECKOUT :
             return {};
     }

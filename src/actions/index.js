@@ -6,10 +6,10 @@
 
 import * as types from './ActionTypes';
 
-export const addcart = () => ({
-    type: types.ADD_CART
-})
+export const addcart = (idx) => {
+    return { type: types.ADD_CART, idx }
+}
 
-export const checkout = () => ({
-    type: types.CHECKOUT
-})
+export const checkout = () => {
+    return {type: types.CHECKOUT}
+}
