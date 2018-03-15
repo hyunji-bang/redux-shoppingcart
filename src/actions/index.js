@@ -6,8 +6,8 @@
 
 import * as types from './ActionTypes';
 
-export const addcart = (idx) => {
-    return { type: types.ADD_CART, idx }
+export const addcart = (idx, amount) => {
+    return { type: types.ADD_CART, idx, amount }
 }
 
 export const checkout = () => {

@@ -13,15 +13,20 @@ function product(state = initialState, action) {
         default:
             return state;
         case types.ADD_CART :
-            return state.map(product => {
-                if( product.idx === action.idx) {
-                    return {
-                        ...product
-                    }
+            if (action.amount > 0) {
+                const newState = [...state]
+                newState[action.idx] = {
+                    ...newState[action.idx],
+                    amount: action.amount - 1
                 }
-            })
+                return newState
+            } else {
+                alert('Sold Out')
+                return state;
+            }
+
         case types.CHECKOUT :
-            return {};
+            return [];
     }
 }
 export default product;

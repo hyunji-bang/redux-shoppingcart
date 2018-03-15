@@ -9,35 +9,31 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addcart: (idx) => dispatch(addcart(idx))
+    addcart: (idx, amount) => dispatch(addcart(idx, amount))
 })
 
 class _Products extends Component {
     render() {
-        const product = this.props.product
         return (
             <div className="Products">
                 <h2>Products</h2>
                 <ul>
-                    {product.map((item, idx) => (
+                    {this.props.product.map((item, idx) =>
                         <ProductItem
-                            onAddCart={()=>this.onAddCart(idx)}
+                            onAddCart={() => this.onAddCart(idx, item.amount)}
                             key={idx}
+                            idx={idx}
                             product={item}
-                            name={item.name}
-                            price={item.price}
-                            amount={item.amount}
-                        />
-                    ))}
+                        />)
+                    }
                 </ul>
             </div>
         );
     }
-    onAddCart = (idx) => {
-        this.props.addcart(idx)
+    onAddCart = (idx, amount) => {
+        this.props.addcart(idx, amount)
     }
 }
-
 
 const Products = connect(
     mapStateToProps, mapDispatchToProps

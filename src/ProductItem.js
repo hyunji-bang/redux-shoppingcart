@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class ProductItem extends Component {
     render() {
-        console.log('this.props', this.props)
-        const {name, price, amount} = this.props.product
+        console.log('Product this.props', this.props)
+        const product = this.props.product || ''
 
         return (
             <li>
-                <strong>{name}</strong> - ${price} x {amount}
-                <button onClick={this.props.onAddCart}>Add to Cart</button>
+                <strong>{this.props.idx} {product.name}</strong> - ${product.price} x {product.amount}
+                <button onClick={this.props.onAddCart}>Add to Cart </button>
             </li>
         );
     }
