@@ -3,13 +3,19 @@ import ProductItem from './ProductItem';
 import { connect } from 'react-redux';
 import { addcart } from './actions';
 
-const mapStateToProps = (state) => ({
-    product: state.product,
-    cart: state.cart
-})
+const mapStateToProps = (state) => {
+    // product: state.product,
+    // cart: state.cart
+
+    const {product, cart} = state;
+    return {
+        product,
+        cart
+    }
+}
 
 const mapDispatchToProps = (dispatch) => ({
-    addcart: (idx, amount) => dispatch(addcart(idx, amount))
+    addcart: (idx, item) => dispatch(addcart(idx, item))
 })
 
 class _Products extends Component {
@@ -20,7 +26,7 @@ class _Products extends Component {
                 <ul>
                     {this.props.product.map((item, idx) =>
                         <ProductItem
-                            onAddCart={() => this.onAddCart(idx, item.amount)}
+                            onAddCart={() => this.onAddCart(idx, item)}
                             key={idx}
                             idx={idx}
                             product={item}
@@ -30,8 +36,8 @@ class _Products extends Component {
             </div>
         );
     }
-    onAddCart = (idx, amount) => {
-        this.props.addcart(idx, amount)
+    onAddCart = (idx, item) => {
+        this.props.addcart(idx, item)
     }
 }
 
