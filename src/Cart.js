@@ -1,12 +1,42 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-class Cart extends Component {
+const mapStateToProps = (state) => {
+    const {cart} = state;
+    return {cart}
+}
+
+
+class _Cart extends Component {
     render() {
+        console.log('************** this.props', this.props)
+        let cartPrice = 0;
         return (
             <div className="Cart">
                 <h2>Cart</h2>
                 Please add some products to cart.
-                Total: $0.00
+
+                <ul>
+                    {this.props.cart.map((cartItem, idx)=> {
+                        return (
+                            <li key={idx}>
+                                {cartItem.name} {cartItem.price}
+                            </li>
+                        )
+                    })}
+                </ul>
+
+                <div>
+                    {this.props.cart.length > 0 ?
+                        this.props.cart.map((cartItem)=> {
+                            cartPrice += cartItem.price;
+                        })
+                        : ''
+                    }
+                    <p className="total">
+                        TOTAL : ${cartPrice}
+                    </p>
+                </div>
 
                 <div>
                     <button>Checkout</button>
@@ -15,5 +45,10 @@ class Cart extends Component {
         );
     }
 }
+
+const Cart = connect(
+    mapStateToProps
+)(_Cart);
+
 
 export default Cart;

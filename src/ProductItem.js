@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class ProductItem extends Component {
     render() {
-        console.log('Product this.props', this.props)
+
         const product = this.props.product || ''
 
         return (
