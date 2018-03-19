@@ -33,13 +33,14 @@ function product(state = initialState.products, action) {
 
 
 function cart(state = initialState.cart_list, action) {
+    console.log('카트 action', action)
     switch(action.type) {
         default:
             return state;
         case types.ADD_CART :
-            if (action.amount > 0) {
+            if (action.item.amount > 0) {
                 const newState = [...state];
-                newState.push[action.item]
+                newState.push(action.item);
                 return newState;
             } else {
                 return state;
