@@ -43,15 +43,15 @@ function cart(state = initialState.cart_list, action) {
                     newState.push(firstItem);
                     return newState;
                 } else {
-                    const a = newState.every((cartObj) => {
+                    const doesntExist = newState.every((cartObj) => {
                         return cartObj.name !== action.item.name
                     })
 
                     const firstItem = {...action.item, amount: 1};
 
-                    if ( a ) { // a는 기존 배열(카트)에 없다
+                    if ( doesntExist ) { // 기존 배열(카트)에 없는 값을 클릭했을 경우
                         newState.push(firstItem);
-                    } else { // 있다 -> 해당위치에 +1
+                    } else { // 있는 값을 클릭했을 경우 -> 해당위치에 +1
                         newState.map((cartObj, index) => {
                             if (cartObj.name === action.item.name) {
                                 newState[index] = {

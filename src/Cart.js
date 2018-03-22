@@ -28,7 +28,7 @@ class _Cart extends Component {
                 <div>
                     {this.props.cart.length > 0 ?
                         this.props.cart.map((cartItem)=> {
-                            cartPrice += cartItem.price;
+                            cartPrice += cartItem.price * cartItem.amount;
                             return ''
                         })
                         : ''
