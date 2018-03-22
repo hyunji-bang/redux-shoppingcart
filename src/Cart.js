@@ -9,7 +9,6 @@ const mapStateToProps = (state) => {
 
 class _Cart extends Component {
     render() {
-        console.log('************** this.props', this.props)
         let cartPrice = 0;
         return (
             <div className="Cart">
@@ -20,7 +19,7 @@ class _Cart extends Component {
                     {this.props.cart.map((cartItem, idx)=> {
                         return (
                             <li key={idx}>
-                                {cartItem.name} {cartItem.price}
+                                {cartItem.name} {cartItem.price} x {cartItem.amount}
                             </li>
                         )
                     })}
@@ -30,6 +29,7 @@ class _Cart extends Component {
                     {this.props.cart.length > 0 ?
                         this.props.cart.map((cartItem)=> {
                             cartPrice += cartItem.price;
+                            return ''
                         })
                         : ''
                     }
