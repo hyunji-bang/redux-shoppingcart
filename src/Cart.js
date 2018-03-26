@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 class _Cart extends Component {
     render() {
         let cartPrice = 0;
+        let cartList = this.props.cart || [];
         return (
             <div className="Cart">
                 <h2>Cart</h2>
@@ -26,15 +27,23 @@ class _Cart extends Component {
                 </ul>
 
                 <div>
-                    {this.props.cart.length > 0 ?
-                        this.props.cart.map((cartItem)=> {
-                            cartPrice += cartItem.price * cartItem.amount;
-                            return ''
-                        })
-                        : ''
-                    }
+                    {/*{this.props.cart.length > 0 ?*/}
+                        {/*this.props.cart.map((cartItem)=> {*/}
+                            {/*cartPrice += cartItem.price * cartItem.amount;*/}
+                            {/*return ''*/}
+                        {/*})*/}
+                        {/*: ''*/}
+                    {/*}*/}
+
+                    {/*reduce 함수로 변경*/}
                     <p className="total">
-                        TOTAL : ${cartPrice}
+                        TOTAL : $
+                        {cartList.length > 0 ?
+                            cartList.reduce((prev, cur)=> {
+                                return cartPrice = ( prev ? prev : 0 ) + cur.price * cur.amount;
+                            }, 0)
+                            : ''
+                        }
                     </p>
                 </div>
 

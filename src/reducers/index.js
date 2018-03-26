@@ -60,6 +60,7 @@ function cart(state = initialState.cart_list, action) {
                                     amount: cartObj.amount + 1
                                 }
                             }
+                            return ''
                         })
 
                     }
